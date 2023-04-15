@@ -21,7 +21,7 @@ import { z } from 'zod';
 
 import { StructuredOutputParser } from './structured_parser';
 
-export const PREFIX = `You are a browser automation assistant. These are fragments from the DOM:
+export const PREFIX = `You are a browser automation assistant. These are fragments from the page:
 {domText}`;
 
 export const SUFFIX = `Your responses to me will consist solely of a valid tool use. You may use tools as many times as necessary, but only one at a time. These are the available tools:

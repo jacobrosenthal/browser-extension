@@ -128,21 +128,3 @@ export async function setValue(payload: {
   // blur the element
   await blurFocusedElement();
 }
-
-export const domActions = {
-  click,
-  setValue,
-} as const;
-
-export type DOMActions = typeof domActions;
-type ActionName = keyof DOMActions;
-type ActionPayload<T extends ActionName> = Parameters<DOMActions[T]>[0];
-
-// Call this function from the content script
-export const callDOMAction = async <T extends ActionName>(
-  type: T,
-  payload: ActionPayload<T>
-): Promise<void> => {
-  // @ts-expect-error - we know that the type is valid
-  await domActions[type](payload);
-};

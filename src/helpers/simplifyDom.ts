@@ -26,7 +26,7 @@ function generateSimplifiedDom(
   interactiveElements: HTMLElement[]
 ): ChildNode | null {
   if (element.nodeType === Node.TEXT_NODE && element.textContent?.trim()) {
-    return document.createTextNode(element.textContent + ' ');
+    return document.createTextNode(element.textContent.trim() + ' ');
   }
 
   if (!(element instanceof HTMLElement || element instanceof SVGElement))
@@ -79,6 +79,5 @@ function generateSimplifiedDom(
   }
 
   children.forEach((child) => container.appendChild(child));
-
   return container;
 }

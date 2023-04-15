@@ -6951,10 +6951,10 @@ klona@^2.0.4:
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.5.tgz#d166574d90076395d9963aa7a928fabb8d76afbc"
   integrity sha512-pJiBpiXMbt7dkzXe8Ghj/u4FfXOOa98fPW+bihOJ4SjnoijweJrNThJfd3ifXpXhREjpoF2mZVH1GfS9LV3kHQ==
 
-langchain@^0.0.55:
-  version "0.0.55"
-  resolved "https://registry.yarnpkg.com/langchain/-/langchain-0.0.55.tgz#8ea781a33fcd30ca48411efe6a765d1ceb3c2971"
-  integrity sha512-ScL53LvBm2X0rIO1fdMLEoCFYESLVTmY0d71qX7qDrB1y8Y8nCtCA1ZiUNYl4WDQeEvKcvB39qWmAJ2XcB8tqQ==
+langchain@^0.0.56:
+  version "0.0.56"
+  resolved "https://registry.yarnpkg.com/langchain/-/langchain-0.0.56.tgz#acb2ff96b7e93fb42d3415b1aeb86ba439a11ced"
+  integrity sha512-5+UCYhKwg//fm2Gb32EpKQiuNlJqt2YdKIFyZRCEyqMSmTd1Cu4QcdRMjFfl7IVwyY3xrUC7dQIMsJ6k+TsRrA==
   dependencies:
     "@anthropic-ai/sdk" "^0.4.3"
     "@dqbd/tiktoken" "^1.0.4"

@@ -125,7 +125,7 @@ export const createCurrentTaskSlice: MyStateCreator<CurrentTaskSlice> = (
         new DynamicTool({
           name: 'click',
           description:
-            'focuses on and sets the value of an input element. input is "elementId")',
+            'focuses on and sets the value of an input element. input is "id"',
           func: async (inputs) => {
             console.log('click', inputs);
             const [elementIdString, _tabId] = inputs.split(',').map((input) => {
@@ -137,7 +137,7 @@ export const createCurrentTaskSlice: MyStateCreator<CurrentTaskSlice> = (
 
             const elementId = parseInt(elementIdString);
             if (isNaN(elementId)) {
-              return 'elementId was not a number';
+              return 'id was not a number';
             }
             try {
               await click({ elementId });
@@ -153,7 +153,7 @@ export const createCurrentTaskSlice: MyStateCreator<CurrentTaskSlice> = (
         new DynamicTool({
           name: 'setValue',
           description:
-            'focuses on and sets the value of an input element. input is "elementId","value")',
+            'focuses on and sets the value of an input element. input is "id","value"',
           func: async (inputs) => {
             console.log('setValue', inputs);
             const [elementIdString, value, _tabId] = inputs
@@ -167,7 +167,7 @@ export const createCurrentTaskSlice: MyStateCreator<CurrentTaskSlice> = (
 
             const elementId = parseInt(elementIdString);
             if (isNaN(elementId)) {
-              return 'elementId was not a number';
+              return 'id was not a number';
             }
             try {
               await setValue({ elementId, value });
@@ -202,7 +202,6 @@ export const createCurrentTaskSlice: MyStateCreator<CurrentTaskSlice> = (
         await disableIncompatibleExtensions();
 
         const pageDOM = await getSimplifiedDom();
-
         if (!pageDOM) {
           set((state) => {
             state.currentTask.status = 'error';
@@ -210,7 +209,6 @@ export const createCurrentTaskSlice: MyStateCreator<CurrentTaskSlice> = (
         } else {
           const html = pageDOM.outerHTML;
           const domText = templatize(html);
-
           const textSplitter = new RecursiveCharacterTextSplitter({
             chunkSize: 2000,
             chunkOverlap: 200,
@@ -231,7 +229,6 @@ export const createCurrentTaskSlice: MyStateCreator<CurrentTaskSlice> = (
           );
           const results = await vectorStore.similaritySearch(instructions, 4);
           const context = results.map((res) => res.pageContent).join('\n');
-
           const interval = setInterval(() => {
             if (wasStopped()) {
               // hack to stop agent, just give it no more iterations
